@@ -11,7 +11,7 @@ const PlaceCard = ({ place }) => {
                 <Card.Img variant="top" src={image} style={{ height: '150px' }} />
                 <Card.Body>
                     <Card.Title className='text-black'>{name}</Card.Title>
-                    <Link to={`/destination/${id}`}>
+                    <Link to={`/booking/${id}`}>
                         <Button variant="primary">Book Now</Button>
                     </Link>
                 </Card.Body>

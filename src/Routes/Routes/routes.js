@@ -17,12 +17,12 @@ export const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/places'),
                 element: <Home></Home>
             },
-            { path: '/booking', element: <PrivateRoute><Booking></Booking></PrivateRoute> },
             {
-                path: '/destination/:id',
-                // loader: ({ params }) => fetch(${ params.id }),
-                element: <PrivateRoute><Destination></Destination></PrivateRoute>
+                path: '/booking/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/places/${params.id}`),
+                element: <Booking></Booking>
             },
+            { path: '/destination', element: <PrivateRoute><Destination></Destination></PrivateRoute> },
             { path: '/login', element: <Login></Login> },
             { path: '/register', element: <Register></Register> },
         ]

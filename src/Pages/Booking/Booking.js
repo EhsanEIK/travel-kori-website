@@ -4,8 +4,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Booking = () => {
+    const place = useLoaderData();
+    const { id, name } = place;
+
     return (
         <div className='background-banner'>
             <Container className='text-white pt-5'>
@@ -25,7 +29,7 @@ const Booking = () => {
                                     </div>
                                     <div class="mb-3">
                                         <label for="destination" class="form-label">Destination</label>
-                                        <input type="text" class="form-control" id="destination" placeholder="destination" />
+                                        <input type="text" value={name} readOnly class="form-control" id="destination" placeholder="destination" />
                                     </div>
                                     <div className='d-flex gap-2'>
                                         <div class="mb-3">
@@ -38,7 +42,9 @@ const Booking = () => {
                                         </div>
                                     </div>
                                 </Card.Body>
-                                <Button variant="primary" className='w-100'>Start Booking</Button>
+                                <Link to='/destination'>
+                                    <Button variant="primary" className='w-100'>Start Booking</Button>
+                                </Link>
                             </Card.Body>
                         </Card>
                     </Col>
