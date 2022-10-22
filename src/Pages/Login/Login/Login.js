@@ -3,12 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { FaFacebook, FaGoogle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Login = () => {
     const { logIn } = useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    console.log(from)
 
     const handleLoginSubmit = event => {
         event.preventDefault();
@@ -23,6 +27,7 @@ const Login = () => {
                 const user = result.user;
                 if (user.emailVerified) {
                     toast.success("Login Successful");
+                    navigate(from, { replace: true });
                 }
                 else {
                     return toast.error("Please verify email first");
