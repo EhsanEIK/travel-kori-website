@@ -12,6 +12,10 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
+    const logIn = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
     const verifyEmail = () => {
         return sendEmailVerification(auth.currentUser);
     }
@@ -23,6 +27,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         createUser,
+        logIn,
         verifyEmail,
         updateUserProfile,
     };
