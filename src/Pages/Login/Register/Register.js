@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, verifyEmail } = useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
 
@@ -28,10 +28,17 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
+                handleEmailVerify();
                 toast.success("Please check your mail to verify");
                 form.reset();
             })
-            .catch(error => setErrorMsg(error));
+            .catch(error => setErrorMsg(error.message));
+    }
+
+    const handleEmailVerify = () => {
+        verifyEmail()
+            .then(() => { })
+            .catch(e => console.error(e));
     }
 
     return (
