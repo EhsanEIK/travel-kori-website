@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Menubar = () => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="warning" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">TRAVEL-KORI</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
