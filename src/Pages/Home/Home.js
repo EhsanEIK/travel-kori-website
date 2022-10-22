@@ -1,9 +1,10 @@
 import React from 'react';
+import './Home.css';
 
 const Home = () => {
     return (
-        <div>
-
+        <div className='background-header'>
+            <h1>Cox's bazar</h1>
         </div>
     );
 };
