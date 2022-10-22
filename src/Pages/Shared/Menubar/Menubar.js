@@ -8,19 +8,20 @@ const Menubar = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="#home">TRAVEL-KORI</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to='/'>Home</Link>
-                        <Link to='/booking'>Bookings</Link>
-                        <Link to=''>Destination</Link>
-                        <Link to=''>About Us</Link>
-                        <Link to=''>Contact Us</Link>
+                        <Link className='text-decoration-none text-dark me-2' to='/'>Home</Link>
+                        <Link className='text-decoration-none text-dark me-2' to='/booking'>Bookings</Link>
+                        <Link className='text-decoration-none text-dark me-2' to=''>Destination</Link>
+                        <Link className='text-decoration-none text-dark me-2' to=''>About Us</Link>
+                        <Link className='text-decoration-none text-dark me-2' to=''>Contact Us</Link>
                     </Nav>
                     <div className="justify-content-end">
                         <Navbar.Text>
-                            Signed in as: <a href="#login">Mark Otto</a>
+                            <Link className='text-decoration-none text-dark me-2' to=''>Login</Link>
+                            <Link className='text-decoration-none text-dark me-2' to=''>Register</Link>
                         </Navbar.Text>
                     </div>
                 </Navbar.Collapse>
