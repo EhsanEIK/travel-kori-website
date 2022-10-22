@@ -23,7 +23,6 @@ const Menubar = () => {
                     <Nav className="me-auto">
                         <Link className='text-decoration-none text-dark me-2' to='/'>Home</Link>
                         <Link className='text-decoration-none text-dark me-2' to='/booking'>Bookings</Link>
-                        <Link className='text-decoration-none text-dark me-2' to=''>Destination</Link>
                         <Link className='text-decoration-none text-dark me-2' to=''>About Us</Link>
                         <Link className='text-decoration-none text-dark me-2' to=''>Contact Us</Link>
                     </Nav>
