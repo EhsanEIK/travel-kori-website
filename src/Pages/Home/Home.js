@@ -11,7 +11,7 @@ import cardImage3 from '../../assets/cardImages/sundorbon.png';
 
 const Home = () => {
     return (
-        <div className='background-header'>
+        <div className='background-banner'>
             <Container className='text-white pt-5'>
                 <Row>
                     <Col md={5}>
