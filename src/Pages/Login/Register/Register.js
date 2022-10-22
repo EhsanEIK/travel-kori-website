@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
@@ -27,6 +28,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
+                toast.success("Please check your mail to verify");
                 form.reset();
             })
             .catch(error => setErrorMsg(error));
@@ -66,6 +68,7 @@ const Register = () => {
                     <Button variant="primary" type="submit" className='w-100'>
                         Register
                     </Button>
+
                     <p className='text-center mt-1'>Already have an account? <Link to='/login'>Login here</Link></p>
                     <Form.Text className="text-danger d-block">
                         {errorMsg}
