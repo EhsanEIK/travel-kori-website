@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link, useLoaderData } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Booking = () => {
     const place = useLoaderData();
     const { id, name } = place;
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+
+    const startMonth = startDate.getMonth() + 1;
+    const currentStartDate = startDate.getDate() + '/' + startMonth + '/' + startDate.getFullYear();
+
+    const endMonth = endDate.getMonth() + 1;
+    const currentEndDate = endDate.getDate() + '/' + endMonth + '/' + startDate.getFullYear();
+
+    const handleSubmit = () => {
+        console.log(currentStartDate);
+        console.log(currentEndDate);
+    }
 
     return (
         <div className='background-banner'>
@@ -23,27 +38,34 @@ const Booking = () => {
                             <Card.Body>
                                 <Card.Title>Shundorban</Card.Title>
                                 <Card.Body>
-                                    <div class="mb-3">
-                                        <label for="origin" class="form-label">Origin</label>
-                                        <input type="text" class="form-control" id="origin" placeholder="origin" />
+                                    <div className="mb-3">
+                                        <label htmlFor="origin" className="form-label">Origin</label>
+                                        <input type="text" className="form-control" id="origin" placeholder="origin" />
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="destination" class="form-label">Destination</label>
-                                        <input type="text" value={name} readOnly class="form-control" id="destination" placeholder="destination" />
+                                    <div className="mb-3">
+                                        <label htmlFor="destination" className="form-label">Destination</label>
+                                        <input type="text" value={name} readOnly className="form-control" id="destination" placeholder="destination" />
                                     </div>
                                     <div className='d-flex gap-2'>
-                                        <div class="mb-3">
-                                            <label for="from-date" class="form-label">From</label>
-                                            <input type="date" class="form-control" id="from-date" placeholder="from-date" />
+                                        <div className="mb-3">
+                                            <label htmlFor="from-date" className="form-label">From</label>
+                                            <DatePicker
+                                                selected={startDate}
+                                                onChange={(date: Date) => setStartDate(date)}
+                                                dateFormat="dd/MM/yyyy" />
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="to-date" class="form-label">To</label>
-                                            <input type="date" class="form-control" id="to-date" placeholder="to-date" />
+                                        <div className="mb-3">
+                                            <label htmlFor="to-date" className="form-label">To</label>
+                                            <DatePicker
+                                                selected={endDate}
+                                                onChange={(date: Date) => setEndDate(date)}
+                                                dateFormat="dd/MM/yyyy" />
                                         </div>
                                     </div>
                                 </Card.Body>
+
                                 <Link to='/destination'>
-                                    <Button variant="primary" className='w-100'>Start Booking</Button>
+                                    <Button onClick={handleSubmit} variant="primary" className='w-100'>Start Booking</Button>
                                 </Link>
                             </Card.Body>
                         </Card>
