@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -7,12 +8,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Login = () => {
-    const { logIn } = useContext(AuthContext);
+    const { logIn, googleSignIn } = useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState('');
+
+    const googleProvider = new GoogleAuthProvider();
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    console.log(from)
 
     const handleLoginSubmit = event => {
         event.preventDefault();
@@ -32,6 +35,16 @@ const Login = () => {
                 else {
                     return toast.error("Please verify email first");
                 }
+            })
+            .catch(error => setErrorMsg(error.message));
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+            .then(r => {
+                console.log(r.user);
+                toast.success("Login Successful");
+                navigate(from, { replace: true });
             })
             .catch(error => setErrorMsg(error.message));
     }
@@ -64,7 +77,7 @@ const Login = () => {
             <div className='d-flex justify-content-center my-3'>
                 <div>
                     <div>
-                        <Button variant="warning" type="submit" className='w-100 px-5'>
+                        <Button onClick={handleGoogleSignIn} variant="warning" type="submit" className='w-100 px-5'>
                             <FaGoogle /> Login via Google
                         </Button>
                     </div>
