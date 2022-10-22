@@ -6,21 +6,22 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Register = () => {
-    const { createUser, verifyEmail } = useContext(AuthContext);
+    const { createUser, verifyEmail, updateUserProfile } = useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState('');
-    const [successMsg, setSuccessMsg] = useState('');
 
     const handleRegisterSubmit = event => {
         event.preventDefault();
         setErrorMsg('');
-        setSuccessMsg('');
 
         const form = event.target;
         const firstName = form.fname.value;
         const lastName = form.lname.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
+
+        const name = firstName + ' ' + lastName;
 
         if (password !== confirm) {
             return alert('Password does not matched');
@@ -29,6 +30,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 handleEmailVerify();
+                handleUpdateUserProfile(name, photoURL)
                 toast.success("Please check your mail to verify");
                 form.reset();
             })
@@ -37,6 +39,16 @@ const Register = () => {
 
     const handleEmailVerify = () => {
         verifyEmail()
+            .then(() => { })
+            .catch(e => console.error(e));
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL,
+        }
+        updateUserProfile(profile)
             .then(() => { })
             .catch(e => console.error(e));
     }
@@ -55,6 +67,11 @@ const Register = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control type="text" name='lname' placeholder="Enter your last name" />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Photo URL</Form.Label>
+                        <Form.Control type="text" name='photoURL' placeholder="Enter your photo URL" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
