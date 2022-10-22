@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+
+    const handleRegisterSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const firstName = form.fname.value;
+        const lastName = form.lname.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirm = form.confirm.value;
+
+        if (password !== confirm) {
+            return alert('Password does not matched');
+        }
+
+        createUser(email, password)
+            .then(result => {
+                form.reset();
+            })
+            .catch(error => console.error(error));
+    }
+
     return (
         <div className='container mx-auto my-5'>
             <div className='d-flex justify-content-center'>
-                <Form className='w-50 border rounded-2 p-5'>
+                <Form onSubmit={handleRegisterSubmit} className='w-50 border rounded-2 p-5'>
                     <h2 className='fw-bold text-center'>Register Now!</h2>
                     <hr />
                     <Form.Group className="mb-3" controlId="formBasicEmail">

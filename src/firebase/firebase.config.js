@@ -5,12 +5,18 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_apiKey,
-    authDomain: process.env.REACT_APP_authDomain,
-    projectId: process.env.REACT_APP_projectId,
-    storageBucket: process.env.REACT_APP_storageBucket,
-    messagingSenderId: process.env.REACT_APP_messagingSenderId,
-    appId: process.env.REACT_APP_appId,
+    // apiKey: process.env.REACT_APP_apiKey,
+    // authDomain: process.env.REACT_APP_authDomain,
+    // projectId: process.env.REACT_APP_projectId,
+    // storageBucket: process.env.REACT_APP_storageBucket,
+    // messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    // appId: process.env.REACT_APP_appId
+    apiKey: "AIzaSyBSz_Z0cPJLec5SynpRhnsil0_KNcx9hxg",
+    authDomain: "travel-kori-web.firebaseapp.com",
+    projectId: "travel-kori-web",
+    storageBucket: "travel-kori-web.appspot.com",
+    messagingSenderId: "813554651970",
+    appId: "1:813554651970:web:3acf0708fd20c0a7d7aedb"
 };
 
 // Initialize Firebase
