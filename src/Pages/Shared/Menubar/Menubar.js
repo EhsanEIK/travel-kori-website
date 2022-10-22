@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Menubar = () => {
+    const { user } = useContext(AuthContext);
+
     return (
         <Navbar bg="warning" expand="lg">
             <Container>
@@ -22,6 +25,7 @@ const Menubar = () => {
                         <Navbar.Text>
                             <Link className='text-decoration-none text-dark me-2' to='/login'>Login</Link>
                             <Link className='text-decoration-none text-dark me-2' to='/register'>Register</Link>
+                            <Link className='text-decoration-none text-dark mx-4' to=''>{user?.displayName}</Link>
                         </Navbar.Text>
                     </div>
                 </Navbar.Collapse>
