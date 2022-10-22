@@ -2,14 +2,13 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { useLoaderData } from 'react-router-dom';
+import PlaceCard from './PlaceCard/PlaceCard';
 import './Home.css';
-import cardImage1 from '../../assets/cardImages/Sajek.png';
-import cardImage2 from '../../assets/cardImages/Sreemongol.png';
-import cardImage3 from '../../assets/cardImages/sundorbon.png';
 
 const Home = () => {
+    const places = useLoaderData();
+
     return (
         <div className='background-banner'>
             <Container className='text-white pt-5'>
@@ -20,33 +19,11 @@ const Home = () => {
                     </Col>
                     <Col md={7}>
                         <Row>
-                            <Col md={4}>
-                                <Card style={{ width: '200px' }}>
-                                    <Card.Img variant="top" src={cardImage1} />
-                                    <Card.Body>
-                                        <Card.Title className='text-black'>Sajek</Card.Title>
-                                        <Button variant="primary">Book Now</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col md={4}>
-                                <Card style={{ width: '200px' }}>
-                                    <Card.Img variant="top" src={cardImage2} />
-                                    <Card.Body>
-                                        <Card.Title className='text-black'>Sreemongol</Card.Title>
-                                        <Button variant="primary">Book Now</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col md={4}>
-                                <Card style={{ width: '200px' }}>
-                                    <Card.Img variant="top" src={cardImage3} />
-                                    <Card.Body>
-                                        <Card.Title className='text-black'>Shundorban</Card.Title>
-                                        <Button variant="primary">Book Now</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
+                            {
+                                places.map(place => <PlaceCard
+                                    key={place.id}
+                                    place={place}></PlaceCard>)
+                            }
                         </Row>
                     </Col>
                 </Row>

@@ -11,7 +11,11 @@ export const router = createBrowserRouter([
         path: '/',
         element: <Main></Main>,
         children: [
-            { path: '/', element: <Home></Home> },
+            {
+                path: '/',
+                loader: () => fetch('http://localhost:5000/places'),
+                element: <Home></Home>
+            },
             { path: '/booking', element: <PrivateRoute><Booking></Booking></PrivateRoute> },
             { path: '/login', element: <Login></Login> },
             { path: '/register', element: <Register></Register> },
