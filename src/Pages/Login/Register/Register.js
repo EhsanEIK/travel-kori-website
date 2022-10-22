@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
@@ -6,9 +6,14 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+    const [errorMsg, setErrorMsg] = useState('');
+    const [successMsg, setSuccessMsg] = useState('');
 
     const handleRegisterSubmit = event => {
         event.preventDefault();
+        setErrorMsg('');
+        setSuccessMsg('');
+
         const form = event.target;
         const firstName = form.fname.value;
         const lastName = form.lname.value;
@@ -24,7 +29,7 @@ const Register = () => {
             .then(result => {
                 form.reset();
             })
-            .catch(error => console.error(error));
+            .catch(error => setErrorMsg(error));
     }
 
     return (
@@ -63,7 +68,7 @@ const Register = () => {
                     </Button>
                     <p className='text-center mt-1'>Already have an account? <Link to='/login'>Login here</Link></p>
                     <Form.Text className="text-danger d-block">
-                        We'll never share your email with anyone else.
+                        {errorMsg}
                     </Form.Text>
                 </Form>
             </div>
