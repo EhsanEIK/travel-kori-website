@@ -20,8 +20,8 @@ const Menubar = () => {
                     </Nav>
                     <div className="justify-content-end">
                         <Navbar.Text>
-                            <Link className='text-decoration-none text-dark me-2' to=''>Login</Link>
-                            <Link className='text-decoration-none text-dark me-2' to=''>Register</Link>
+                            <Link className='text-decoration-none text-dark me-2' to='/login'>Login</Link>
+                            <Link className='text-decoration-none text-dark me-2' to='/register'>Register</Link>
                         </Navbar.Text>
                     </div>
                 </Navbar.Collapse>
