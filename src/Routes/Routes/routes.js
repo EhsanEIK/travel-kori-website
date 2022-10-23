@@ -14,17 +14,17 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/places'),
+                loader: () => fetch(' https://travel-kori-server.vercel.app/places'),
                 element: <Home></Home>
             },
             {
                 path: '/booking/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/places/${params.id}`),
+                loader: ({ params }) => fetch(` https://travel-kori-server.vercel.app/places/${params.id}`),
                 element: <Booking></Booking>
             },
             {
                 path: '/destination',
-                loader: () => fetch('http://localhost:5000/places'),
+                loader: () => fetch(' https://travel-kori-server.vercel.app/places'),
                 element: <PrivateRoute><Destination></Destination></PrivateRoute>
             },
             { path: '/login', element: <Login></Login> },
