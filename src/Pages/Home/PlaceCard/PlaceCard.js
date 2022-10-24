@@ -10,17 +10,27 @@ const PlaceCard = ({ place, setPlaceName, setPlaceDescription }) => {
         setPlaceDescription(description);
     }
 
+    const myStyle = {
+        backgroundImage: `url(${image})`,
+        backgroundRepeat: "no-repeat",
+        backgrounSize: "cover",
+        backgroundPosition: "cneter",
+
+        width: "200px",
+        height: "400px",
+        borderRadius: "15px",
+        boxShadow: "10px 10px 15px black"
+    }
+
     return (
-        <Col lg={4} md={6}>
-            <Card onClick={handleSelectCard} style={{ marginBottom: '15px' }}>
-                <Card.Img variant="top" src={image} style={{ height: '150px' }} />
-                <Card.Body>
-                    <Card.Title className='text-black'>{name}</Card.Title>
-                    <Link to={`/booking/${id}`}>
-                        <Button variant="primary">Book Now</Button>
-                    </Link>
-                </Card.Body>
-            </Card>
+        <Col lg={4} md={6} sm={6} className="position-relative mb-3">
+            <div style={myStyle} onMouseEnter={handleSelectCard}>
+                <Link to={`/booking/${id}`} style={{
+                    position: "absolute", bottom: "10px", left: "20px",
+                }}>
+                    <Button variant="outline-light" style={{ width: "180px" }}>{name}</Button>
+                </Link>
+            </div >
         </Col>
     );
 };
