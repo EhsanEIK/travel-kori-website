@@ -46,20 +46,21 @@ const Booking = () => {
                                         <label htmlFor="destination" className="form-label">Destination</label>
                                         <input type="text" value={name} readOnly className="form-control" id="destination" placeholder="destination" />
                                     </div>
-                                    <div className='d-flex gap-2'>
+                                    <div className='d-lg-flex gap-2'>
                                         <div className="mb-3">
                                             <label htmlFor="from-date" className="form-label">From</label>
                                             <DatePicker
                                                 selected={startDate}
                                                 onChange={(date: Date) => setStartDate(date)}
-                                                dateFormat="dd/MM/yyyy" />
+                                                dateFormat="dd/MM/yyyy" className='w-100' />
                                         </div>
                                         <div className="mb-3">
                                             <label htmlFor="to-date" className="form-label">To</label>
                                             <DatePicker
                                                 selected={endDate}
                                                 onChange={(date: Date) => setEndDate(date)}
-                                                dateFormat="dd/MM/yyyy" />
+                                                dateFormat="dd/MM/yyyy"
+                                                className='w-100' />
                                         </div>
                                     </div>
                                 </Card.Body>
