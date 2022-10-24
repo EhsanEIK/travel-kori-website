@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import Menubar from '../../Shared/Menubar/Menubar';
 
 const Register = () => {
     const { createUser, verifyEmail, updateUserProfile } = useContext(AuthContext);
@@ -54,52 +55,55 @@ const Register = () => {
     }
 
     return (
-        <div className='container mx-auto my-5'>
-            <div className='d-flex justify-content-center'>
-                <Form onSubmit={handleRegisterSubmit} className='w-auto border rounded-2 p-5'>
-                    <h2 className='fw-bold text-center'>Register Now!</h2>
-                    <hr />
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>First Name</Form.Label>
-                        <Form.Control type="text" name='fname' placeholder="Enter your first name" />
-                    </Form.Group>
+        <>
+            <Menubar></Menubar>
+            <div className='container' style={{ marginBottom: "100px" }}>
+                <div className='d-flex justify-content-center my-5'>
+                    <Form onSubmit={handleRegisterSubmit} className='w-auto border rounded-2 p-5'>
+                        <h2 className='fw-bold text-center'>Register Now!</h2>
+                        <hr />
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>First Name</Form.Label>
+                            <Form.Control type="text" name='fname' placeholder="Enter your first name" />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control type="text" name='lname' placeholder="Enter your last name" />
-                    </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Last Name</Form.Label>
+                            <Form.Control type="text" name='lname' placeholder="Enter your last name" />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Photo URL</Form.Label>
-                        <Form.Control type="text" name='photoURL' placeholder="Enter your photo URL" />
-                    </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Photo URL</Form.Label>
+                            <Form.Control type="text" name='photoURL' placeholder="Enter your photo URL" />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter email" />
-                    </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" name='email' placeholder="Enter email" />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name='password' placeholder="Password" />
-                    </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" name='password' placeholder="Password" />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control type="password" name='confirm' placeholder="confirm password" />
-                    </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Confirm Password</Form.Label>
+                            <Form.Control type="password" name='confirm' placeholder="confirm password" />
+                        </Form.Group>
 
-                    <Button variant="primary" type="submit" className='w-100'>
-                        Register
-                    </Button>
+                        <Button variant="primary" type="submit" className='w-100'>
+                            Register
+                        </Button>
 
-                    <p className='text-center mt-1'>Already have an account? <Link to='/login'>Login here</Link></p>
-                    <Form.Text className="text-danger d-block">
-                        {errorMsg}
-                    </Form.Text>
-                </Form>
+                        <p className='text-center mt-1'>Already have an account? <Link to='/login'>Login here</Link></p>
+                        <Form.Text className="text-danger d-block">
+                            {errorMsg}
+                        </Form.Text>
+                    </Form>
+                </div>
             </div>
-        </div >
+        </>
     );
 };
 

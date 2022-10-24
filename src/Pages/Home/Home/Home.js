@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useLoaderData } from 'react-router-dom';
-
 import './Home.css';
 import PlaceCard from '../PlaceCard/PlaceCard';
+import MenubarHome from '../../Shared/MenubarHome/MenubarHome';
 
 const Home = () => {
     const places = useLoaderData();
@@ -14,13 +14,14 @@ const Home = () => {
 
     return (
         <div className='background-banner'>
-            <Container className='text-white pt-5'>
+            <MenubarHome></MenubarHome>
+            <Container className='text-white pt-5 mt-4'>
                 <Row>
                     <Col md={5}>
                         <h1>{name}</h1>
                         <p>{description.slice(0, 300)}</p>
                     </Col>
-                    <Col md={7}>
+                    <Col md={7} style={{ marginBottom: "100px" }}>
                         <Row>
                             {
                                 places.map(place => <PlaceCard

@@ -7,10 +7,11 @@ import Card from 'react-bootstrap/Card';
 import { Link, useLoaderData } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import MenubarHome from '../Shared/MenubarHome/MenubarHome';
 
 const Booking = () => {
     const place = useLoaderData();
-    const { id, name, description } = place;
+    const { name, description } = place;
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
@@ -27,16 +28,17 @@ const Booking = () => {
 
     return (
         <div className='background-banner'>
-            <Container className='text-white pt-5'>
+            <MenubarHome></MenubarHome>
+            <Container className='text-white pt-5 mt-4'>
                 <Row>
                     <Col md={7}>
                         <h1>{name}</h1>
                         <p>{description}</p>
                     </Col>
-                    <Col md={5}>
+                    <Col md={5} style={{ marginBottom: "50px" }}>
                         <Card className='text-black bg-info mb-3 mb-md-0'>
                             <Card.Body>
-                                <Card.Title>Shundorban</Card.Title>
+                                <Card.Title>Booking Your Tour</Card.Title>
                                 <Card.Body>
                                     <div className="mb-3">
                                         <label htmlFor="origin" className="form-label">Origin</label>

@@ -3,11 +3,17 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 1000px;
 }
 
 @media screen and (max-width: 688px) {
     .background-banner {
         height: 100%;
+    }
+}
+
+@media only screen and (min-width:689px) and (max-width:992px) {
+    .background-banner {
+        height: 100vh;
     }
 }
