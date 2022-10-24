@@ -30,7 +30,7 @@ const Booking = () => {
             <Container className='text-white pt-5'>
                 <Row>
                     <Col md={7}>
-                        <h1>Sajek</h1>
+                        <h1>{name}</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam delectus eligendi eius ad minus esse repellendus vero a fugiat ipsa tenetur reiciendis est neque dignissimos, cumque enim exercitationem illo illum debitis deleniti harum accusamus dolorem facere? Vero mollitia fugiat voluptatibus debitis, quo ducimus, quasi veniam iusto ipsum delectus nobis suscipit cum laboriosam non inventore rem similique recusandae odio cupiditate doloremque necessitatibus deleniti, molestias at. Beatae dolorem est necessitatibus tempore, nisi quos et excepturi fugit consequatur, quia fugiat illo eveniet, dicta architecto voluptate odit qui impedit tenetur totam quo in soluta dolores id similique. Exercitationem vel expedita modi accusamus voluptatem dolorem.</p>
                     </Col>
                     <Col md={5}>

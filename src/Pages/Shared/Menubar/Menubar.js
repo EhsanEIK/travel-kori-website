@@ -17,7 +17,7 @@ const Menubar = () => {
     return (
         <Navbar bg="warning" expand="lg">
             <Container>
-                <Navbar.Brand href="#home">TRAVEL-KORI</Navbar.Brand>
+                <Link className='text-decoration-none' to='/'><Navbar.Brand>TRAVEL-KORI</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
