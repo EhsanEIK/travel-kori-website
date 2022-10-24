@@ -5,3 +5,9 @@
     background-size: cover;
     height: 100vh;
 }
+
+@media screen and (max-width: 689px) {
+    .background-banner {
+        height: 100%;
+    }
+}

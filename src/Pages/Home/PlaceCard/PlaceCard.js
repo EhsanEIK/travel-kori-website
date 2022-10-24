@@ -6,8 +6,8 @@ const PlaceCard = ({ place }) => {
     const { id, image, name } = place;
 
     return (
-        <Col md={4}>
-            <Card>
+        <Col lg={4} md={6}>
+            <Card style={{ marginBottom: '15px' }}>
                 <Card.Img variant="top" src={image} style={{ height: '150px' }} />
                 <Card.Body>
                     <Card.Title className='text-black'>{name}</Card.Title>
