@@ -6,7 +6,7 @@ const Room = ({ room }) => {
 
     return (
         <Col md={12}>
-            <div className='d-flex border rounded-2 gap-3 p-4 ms-0 me-2 mb-5'>
+            <div className='d-flex border rounded-2 gap-3 p-4 ms-0 me-2 mb-3'>
                 <Image src={img} className='w-50 h-auto' />
                 <div>
                     <h3>{name}</h3>
