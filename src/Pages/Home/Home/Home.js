@@ -6,11 +6,14 @@ import { useLoaderData } from 'react-router-dom';
 import './Home.css';
 import PlaceCard from '../PlaceCard/PlaceCard';
 import MenubarHome from '../../Shared/MenubarHome/MenubarHome';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
     const places = useLoaderData();
     const [name, setName] = useState(places[0].name);
     const [description, setDescription] = useState(places[0].description);
+
+    useTitle('Home');
 
     return (
         <div className='background-banner'>

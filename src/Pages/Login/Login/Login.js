@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import Menubar from '../../Shared/Menubar/Menubar';
 
 const Login = () => {
@@ -17,6 +18,8 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+
+    useTitle('Login');
 
     const handleLoginSubmit = event => {
         event.preventDefault();

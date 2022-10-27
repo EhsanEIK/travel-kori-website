@@ -8,10 +8,14 @@ import { Link, useLoaderData } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import MenubarHome from '../Shared/MenubarHome/MenubarHome';
+import useTitle from '../../hooks/useTitle';
 
 const Booking = () => {
     const place = useLoaderData();
     const { name, description } = place;
+
+    useTitle('Booking');
+
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 

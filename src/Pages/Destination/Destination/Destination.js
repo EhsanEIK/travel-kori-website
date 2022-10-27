@@ -1,11 +1,14 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 import Menubar from '../../Shared/Menubar/Menubar';
 import Room from '../Room/Room';
 import './Destination.css';
 
 const Destination = () => {
     const rooms = useLoaderData();
+
+    useTitle('Destination');
 
     return (
         <>
